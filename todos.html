@@ -14,37 +14,34 @@
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
     <!-- Enlaces Firebase-->
-    <title>Titulo</title>
+    <title>Todos los registros</title>
   </head>
   <body>
-    <div class="container">
+     <div class="container">
+        <table class="centered">
+          
+              <tr><td>  <a href="./index.html">Volver</a></td></tr>
+        </table>
+    <script src="index.js"></script>
     
-     <script src="index.js"></script>
-     <!-- <SCRIPT>
-      var user = firebase.auth().currentUser;
-
-    if (user != null) {
-      document.body.innerHTML="<b> USUARIO AUTORIZADO";
-      } else {
-        document.body.innerHTML="<b> USUARIO DEBE LOGEARSE ";
-      }
-      </SCRIPT>
-      -->
-     <!-- Ejemplo 1 -->
-    <table class="">
-     <tr><td>  Nombre  <input class="input-field col s6" type="text" name="nombre" id="nombre"><br></td></tr> 
-     <tr><td> Apellido<input type="text" name="apellido" id="apellido"><br></td></tr> 
-     <tr><td> Edad<input type="text" name="edad" id="edad"><br></td></tr> 
-  </table>
-  <table class="centered">
-  <tr><td>  <button onclick="agregardatos()">AGREGAR DATOS</button><br><br></td></tr>
     
-   
+      <div class="container" id="list_div"><div class="list-item">  </div> 
+     
+    <script>
 
-      <tr><td>  <button onclick="todoslosdatos()">BUSCAR DATOS</button><br><br></td></tr>
-  
-        <tr><td>  <a href="./todos.html">VER TODOS</a></td></tr>
-  </table>
-  </div>
+      const list_div = document.querySelector("#list_div");
+      
+      db.collection("usuarios").get().then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                list_div.innerHTML+="<div class=''><table class='responsive-table'><tr><td> " + doc.id + "</td><td> " + doc.data().first + "</td><td> " 
+                + doc.data().last + "</td><td> " + doc.data().born +"<button onclick='eliminardatos(\"" + doc.id +"\")'>Delete</button></td></tr></table></div>"
+              });
+              }); 
+       
+      </script>
+      
+
+      
+    </div>
   </body>
 </html> 

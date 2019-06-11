@@ -28,15 +28,15 @@
 
         }
 
-        function eliminardatos(){
-
-           
-
-        db.collection("usuarios").doc("mCIxBtYSdZ4pmNYNt5CA").delete().then(function() {
+        function eliminardatos(valor){
+        
+        db.collection("usuarios").doc(valor).delete().then(function() {
             console.log("Document successfully deleted!");
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
+              
+      
     }
          function todoslosdatos(){
             db.collection("usuarios").get().then(function(querySnapshot) {
@@ -46,4 +46,7 @@
                 });
             });
             }
+           
+            
+
         
