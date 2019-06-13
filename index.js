@@ -1,52 +1,53 @@
-        firebase.initializeApp({
-         apiKey: "AIzaSyAp8hM1_awR00OcuSUpWJsa1Fy7pFprQt0",
-         authDomain: "eva2-e7262.firebaseapp.com",
-         databaseURL: "https://eva2-e7262.firebaseio.com",
-         projectId: "eva2-e7262"
-        });
+firebase.auth().onAuthStateChanged(function(user) 
+{
+  if (user) {
+    // User is signed in.
 
-        // Initialize Cloud Firestore through Firebase
-        var db = firebase.firestore();
+    document.getElementById("user_div").style.display = "block";
+    document.getElementById("login_div").style.display = "none";
 
-        function agregardatos(){
+    var user = firebase.auth().currentUser;
 
-            var nombre = document.getElementById("nombre").value;
-            var apellido = document.getElementById("apellido").value;
-            var edad = document.getElementById("edad").value;
+    if(user != null){
 
-            db.collection("usuarios").add({
-                first: nombre,
-                last: apellido,
-                born: edad
-            })
-            .then(function(docRef) {
-                console.log("Document written with ID: ", docRef.id);
-            })
-            .catch(function(error) {
-                console.error("Error adding document: ", error);
-            });
+      var email_id = user.email;
+      document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
 
-        }
-
-        function eliminardatos(valor){
-        
-        db.collection("usuarios").doc(valor).delete().then(function() {
-            console.log("Document successfully deleted!");
-        }).catch(function(error) {
-            console.error("Error removing document: ", error);
-        });
-              
-      
     }
-         function todoslosdatos(){
-            db.collection("usuarios").get().then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
-                    // doc.data() is never undefined for query doc snapshots
-                    console.log(doc.id, " => ", doc.data().first + "-" + doc.data().last + "-" + doc.data().born);
-                });
-            });
-            }
-           
-            
 
-        
+  } else {
+    // No user is signed in.
+
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
+
+  }
+});
+
+function login(){
+
+  var userEmail = document.getElementById("email_field").value;
+  var userPass = document.getElementById("password_field").value;
+
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Error : " + errorMessage);
+
+    // ...
+  });
+
+}
+
+function logout(){
+  firebase.auth().signOut();
+}
+function logout2(){
+  alert();
+}
+function conti(){
+  alert();
+  //window.location.href ("/principal.html")
+}

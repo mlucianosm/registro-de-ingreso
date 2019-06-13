@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.8" />-->
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.min.css">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.css">
+      <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "/materialize/materialize.min.js"></script>    
+    <!-- Enlaces Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    <!-- Enlaces Firebase-->
+    <title>Titulo</title>
+  </head>
+  <body onload="cargadatos()">
+    <div class="container">
+    
+     <script src="principal.js"></script>
+     <h3>Modificando</h3>
+    
+    <table class="">
+            <tr><td>  ID  <input class="input-field col s6" type="text"  id="id" ><br></td></tr> 
+            
+     <tr><td>  Nombre  <input class="input-field col s6" type="text" name="nombre" id="nombre"><br></td></tr> 
+     <tr><td> Apellido<input type="text" name="apellido" id="apellido"><br></td></tr> 
+     <tr><td> Edad<input type="text" name="edad" id="edad"><br></td></tr> 
+  </table>
+  <table class="centered">
+  <tr><td>  <button onclick="modificardatos()">MODIFICAR DATOS</button><br><br></td></tr>
+         <tr><td>  <a href="./principal.html">VER TODOS</a></td></tr>
+  </table>
+  </div>
+  <script>
+        
+        document.getElementById("id").value=getQueryVariable("id");
+        document.getElementById("nombre").value=getQueryVariable("nombre");
+        document.getElementById("apellido").value=getQueryVariable("apellido");
+        document.getElementById("edad").value=getQueryVariable("edad");
+  
+  </script>
+  </body>
+</html> 

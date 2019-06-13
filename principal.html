@@ -14,7 +14,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
     <!-- Enlaces Firebase-->
-    <title>Todos los registros</title>
+    <title>Titulo</title>
   </head>
   <body class="lime accent-2">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -25,31 +25,23 @@
 
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
-<div class="container" style="margin-top:0px;width: 80%">
-        <table >
-          <tr><td>  <a href="./principal.html" class="waves-effect waves-light btn">Volver</a></td></tr>
-        </table>
-    <script src="principal.js"></script>
+<div class="container" style="margin-top:90px;width: 30%">
     
+     <script src="principal.js"></script>
     
-      <div class="container" id="list_div"><div class="list-item">  </div> 
+    <table class="centered">
+      <tr><td colspan="3" class="waves-effect waves-light btn">Registro de Personas</td></tr>
+     <tr><td>    <input placeholder="Nombre..."class="white" type="text" name="nombre" id="nombre"><br></td></tr> 
+     <tr><td> <input placeholder="Apellido..." class="white" type="text" name="apellido" id="apellido"><br></td></tr> 
+     <tr><td> <input placeholder="Edad" class="white" type="text" name="edad" id="edad"><br></td></tr> 
+  </table>
+  <table class="centered">
+    <tr><td>  <a class="waves-effect waves-light btn" onclick="agregardatos()">Agregar </a></td>
+    <td>  <a class="waves-effect waves-light btn" href="./todos.html">VER TODOS</a></td>  
+    <td>  <a href="./index.html" class="waves-effect waves-light btn">Volver</a></td></tr>
+  </table>
      
-    <script>
-
-      const list_div = document.querySelector("#list_div");
-      
-      db.collection("usuarios").get().then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
-                list_div.innerHTML+="<table style='width=\"100%\"'><td style='width=\"25%\"'><td style='width=\"25%\"'> " + doc.id + "</td><td style='width=\"25%\"'> " + doc.data().first + "</td><td style='width=\"25%\"' > " 
-                + doc.data().last + "</td><td > " + doc.data().born +"</td><td style='width=\"25%\"'><button class=\"waves-effect waves-light btn\" onclick='eliminardatos(\"" + doc.id +"\")'>Elimina</button></td>"
-                +"<td style='width=\"25%\"'><a href='./modifica.html?id=" + doc.id + "&nombre=" + doc.data().first +  "&apellido=" + doc.data().last +  "&edad=" + doc.data().born + "' class=\"waves-effect waves-light btn\">Modifica</a></td></table>"
-              });
-              }); 
-       
-      </script>
-      
-
-      
-    </div>
+  
+  </div>
   </body>
 </html> 

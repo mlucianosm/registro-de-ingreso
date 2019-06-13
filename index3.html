@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="login_div" class="main-div">
+    <h1>IP Chile</h1>
+     <h2> Eva2 Firebase Aplicaciones Moviles  </h2>
+    <h3>Ingreso </h3>
+    <input type="email" placeholder="Correo..." id="email_field" />
+    <input type="password" placeholder="Contrasena..." id="password_field" />
+
+    <button onclick="login()">Enviar</button>
+  </div>
+
+  <div id="user_div" class="loggedin-div">
+    <h3>Bienvenido</h3>
+    <p id="user_para">Se ha autenticado correctamente.</p>
+    <button onclick="seguir()">Continuar</button><br>
+    <button onclick="logout()">Salir</button>
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAp8hM1_awR00OcuSUpWJsa1Fy7pFprQt0",
+                authDomain: "eva2-e7262.firebaseapp.com",
+                databaseURL: "https://eva2-e7262.firebaseio.com",
+                projectId: "eva2-e7262",
+      storageBucket: "",
+      messagingSenderId: ""
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="index.js"></script>
+  <script>
+      function seguir(){
+         window.location.href = "principal.html";
+      }
+  </script>
+
+</body>
+</html>
