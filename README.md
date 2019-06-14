@@ -7,4 +7,4 @@ Una ves Autenticado el ingreso se desplegara una aplicacion Html+Javascript que 
 de una persona. Posee botones para Agregar , Ver Todos y Volver .
 En la opcion Ver todos se desplagara una tabla donde se mostraran en filas la informacion para cada registro
 adicionalmente apareceran Opcion Eliminar y Opcion Modificar.
-('https://github.com/mlucianosm/registro-de-ingreso/blob/master/registro-ingreso.png')
+![Registro Ingreso](http://github.com/mlucianosm/registro-de-ingreso/blob/master/registro-ingreso.png)
