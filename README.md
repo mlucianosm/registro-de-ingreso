@@ -8,4 +8,4 @@ de una persona. Posee botones para Agregar , Ver Todos y Volver .
 En la opcion Ver todos se desplegara una tabla donde se mostraran en filas la informacion para cada registro
 adicionalmente apareceran Opcion Eliminar y Opcion Modificar.
 
-![Registro Ingreso](https://github.com/mlucianosm/IONIC-CATALOGO-HOGAR/blob/master/src/assets/portada.png)
+![Registro Ingreso](https://github.com/mlucianosm/IONIC-CATALOGO-HOGAR/blob/master/src/assets/fondopantalla2.png)
